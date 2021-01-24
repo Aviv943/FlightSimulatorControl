@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="371.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FlightController">
+    <children>
+        <Text layoutX="29.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions:">
+         <font>
+            <Font size="22.0" />
+         </font></Text>
+      <TextArea editable="false" layoutX="29.0" layoutY="57.0" prefHeight="302.0" prefWidth="736.0" text="1. After loading this tool, you need to run 'RunServer.bat'&#10;2. Click on the 'Load Map' button and load a map. Honolulu map attached and located in the root folder.&#10;3. Click on 'Calculate Path' and insert PORT and IP, our default port is 2030, and the default IP is 127.0.0.1.&#10;4. You can click on the map and look for the best path to arrive.&#10;5. Before running FlightGear 2018.3.2, make sure to copy the 'generic_small.xml' file to the FlightGear installation folder/data/protocol.&#10;6. Run FlightGear 2018.3.2, go to Settings &gt; Additional Settings&#10;7. Insert this text:&#10;    --telnet=socket,in,10,127.0.0.1,5402,tcp --httpd=8080&#10;    --generic=socket,out,10,127.0.0.1,5400,tcp,generic_small&#10;8. Click 'Fly!', it will load the simulator (Loading may take up to 5 minutes)&#10;9. On the Flight Simulator Controller, click on 'Connect' insert PORT 5402 and IP 127.0.0.1.&#10;10. Now you should be able to control your airplane with the joystick or autopilot.&#10;11. (Optional) For autopilot, click on 'Load' and load the 'takeoff_script.txt' from the root folder.&#10;12. Click 'Run' (Radio button) if it's not being selected automatically. &#10;&#10;Enjoy!" />
+    </children>
+</AnchorPane>
