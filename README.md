@@ -91,24 +91,6 @@ One of its features is running a script, which is basically a kind of custom pro
 For this purpose, we wrote a code reader, an interpreter, which allows you to connect to the simulator, open a server, and run various commands that control the plane and sample its data.
 
 ---
-
-### Command Pattern
-
-<p align="center">
-  <img src="/uml/CommandPattern.png" width="600">
-</p>
-
-In this project there is an extensive use of commands, the plane needs to receive a lot of instructions in a short period of time 
-in order to fly correctly. For that matter, the most suitable design pattern for the task is the Command Pattern. 
-The Command Pattern implementation can be seen in our ```CompParser``` - each command in the program is receiving its own Command Object.
-
-It is important that all commands will implement the same interface, because we want them to have a common polymorphic denominator.
-
-Another reason to use the Command Pattern is for when we need an assembly of commands at once. For example, we needed a command that holds other different commands inside of it. In that case, we combined the **Command Pattern** with **Composite Pattern**.
-
-So if, for example, we take a look at the "loop" command or "if" command, then we can see that each contains a list of commands which in turn can be either a standard single command or a list of commands.
-
----
 ### Interpreter stages
 
 <p align="center">
@@ -151,4 +133,5 @@ For the MVVM architecture to work, we'll have to wrap the different components t
 This is done by the Observer Pattern, which binds the different components together, and notify them about changes that are made or needs to be made as required by the operator. 
 
 
-## Authors* **Aviv Miranda** -  & **Alex Triotsky** 
+## Authors
+**Aviv Miranda** & **Alex Triotsky** 
