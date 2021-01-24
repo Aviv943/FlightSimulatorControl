@@ -60,9 +60,6 @@ We created the ```CacheManager``` interface to manage the cache for us, with the
 ### Our Concerete Server
 Given a graph, it could solve it using [A-star](https://en.wikipedia.org/wiki/A*_search_algorithm) algorithm ( which is already implemented in this project based on djkistra algorithm using manhattan distances ) or any other search algorithm.
 
-<p align="center">
-  <img src="/uml/server_bridgepattern.png" width="600">
-</p>
 In our concrete server, given a weighted graph, it will run the search algorithm, and as an output it will return the cheapest route to the target.
 
 You can see that the Bridge Design Pattern was implemented, as we created a separation between the problem, and what solves the problem. That way we can solve various problems through different solutions.
@@ -91,40 +88,7 @@ As stated at the beginning of the repository, the project is a GUI of a flight s
 
 One of its features is running a script, which is basically a kind of custom programming language that can handle the plane.
 
-As in the following example:
-
-```scala
-openDataServer 5400 10
-connect 127.0.0.1 5402
-var breaks = bind "/controls/flight/speedbrake"
-var throttle = bind "/controls/engines/current-engine/throttle"
-var heading = bind "/instrumentation/heading-indicator/indicated-heading-deg"
-var roll = bind "/instrumentation/attitude-indicator/indicated-roll-deg"
-var pitch = bind "/instrumentation/attitude-indicator/internal-pitch-deg"
-var rudder = bind "/controls/flight/rudder"
-var aileron = bind "/controls/flight/aileron"
-var elevator = bind "/controls/flight/elevator"
-var alt = bind "/instrumentation/altimeter/indicated-altitude-ft"
-breaks = 0
-throttle = 1
-var h0 = heading
-sleep 5000
-while alt < 1000 {
-	rudder = (h0 - heading)/180
-	aileron = - roll / 70
-	elevator = pitch / 50
-	sleep 150
-}
-
-```
 For this purpose, we wrote a code reader, an interpreter, which allows you to connect to the simulator, open a server, and run various commands that control the plane and sample its data.
-
-In the text above, we see a while loop that will take place as long as the plane’s altitude is less than a 1000 meters, the loop content will give orders to the plane's acceleration and elevation.
-In this part:
-```scala
-rudder = (h0 - heading)/180
-```
-We can see that arithmetic expressions are supported as well, and to interpret them we use [Dijkstra's Shunting Yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
 
 ---
 
